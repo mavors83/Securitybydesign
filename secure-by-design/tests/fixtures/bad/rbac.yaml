@@ -1,0 +1,20 @@
+# Fixture con pattern volutamente insicuri: NON usare come esempio.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: app-everything
+rules:
+  # sbd-expect-next: P-K8S-10
+  - apiGroups: ["*"]
+    verbs:
+      # sbd-expect-next: P-K8S-11
+      - "*"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: app-admin
+roleRef:
+  kind: ClusterRole
+  # sbd-expect-next: P-K8S-12
+  name: cluster-admin

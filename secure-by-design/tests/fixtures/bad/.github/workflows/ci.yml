@@ -1,0 +1,19 @@
+# Fixture con pattern volutamente insicuri: NON usare come esempio.
+name: ci
+on:
+  # sbd-expect-next: P-CICD-03
+  pull_request_target:
+# sbd-expect-next: P-CICD-04
+permissions: write-all
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      # sbd-expect-next: P-CICD-01
+      - uses: actions/checkout@v4
+      # sbd-expect-next: P-CICD-02
+      - run: echo "${{ github.event.pull_request.title }}"
+  call:
+    uses: ./.github/workflows/reusable.yml
+    # sbd-expect-next: P-CICD-05
+    secrets: inherit

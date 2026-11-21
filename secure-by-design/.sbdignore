@@ -1,0 +1,5 @@
+# Esclusioni dello scanner sbd_patterns.py per questo plugin.
+# Fixture del self-test: contengono codice volutamente insicuro.
+tests/fixtures/*
+# Il self-test genera a runtime segreti fittizi e codice insicuro da far rilevare allo scanner.
+tests/selftest_patterns.py

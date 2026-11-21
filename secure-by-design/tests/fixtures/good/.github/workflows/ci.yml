@@ -1,0 +1,18 @@
+name: ci
+on:
+  pull_request:
+permissions: {}
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4.3.0
+        with:
+          persist-credentials: false
+      - name: Show title
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: echo "Titolo: $PR_TITLE"
+      - uses: ./.github/actions/local-action

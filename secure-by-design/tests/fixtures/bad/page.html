@@ -1,0 +1,5 @@
+<!-- Fixture con pattern volutamente insicuri: NON usare come esempio. -->
+<!-- sbd-expect-next: P-XSS-02 -->
+<div>{{{ user.bio }}}</div>
+<!-- sbd-expect-next: P-XSS-01 -->
+<script>document.write(location.hash)</script>

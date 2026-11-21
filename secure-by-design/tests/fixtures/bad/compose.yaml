@@ -1,0 +1,12 @@
+# Fixture con pattern volutamente insicuri: NON usare come esempio.
+services:
+  app:
+    # sbd-expect-next: P-K8S-08
+    image: postgres:16
+    # sbd-expect-next: P-K8S-03
+    user: root
+    # sbd-expect-next: P-K8S-04
+    network_mode: host
+    cap_add:
+      # sbd-expect-next: P-K8S-06
+      - SYS_ADMIN

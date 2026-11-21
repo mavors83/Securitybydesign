@@ -1,0 +1,11 @@
+{
+  "Statement": [{
+    "Effect": "Allow",
+    // sbd-expect-next: P-IAC-07
+    "Principal": "*",
+    // sbd-expect-next: P-IAC-06
+    "Action": "s3:*",
+    // sbd-expect-next: P-IAC-06
+    "Resource": "*"
+  }]
+}

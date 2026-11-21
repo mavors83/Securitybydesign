@@ -1,0 +1,21 @@
+{
+  "name": "secure-by-design",
+  "version": "0.1.0",
+  "description": "Linee guida Security by Design del team di ingegneria CISO per agenti di sviluppo: principi e regole non negoziabili, threat modeling, secure coding, supply chain, infrastruttura applicativa (cloud, IaC, container, Kubernetes, CI/CD), protezione dei dati, sicurezza AI/LLM e security gate con evidenze verificabili.",
+  "author": {
+    "name": "CISO Security Engineering"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "security-by-design",
+    "secure-coding",
+    "devsecops",
+    "owasp",
+    "pci-dss",
+    "dora",
+    "nis2",
+    "gdpr",
+    "supply-chain",
+    "threat-modeling"
+  ]
+}

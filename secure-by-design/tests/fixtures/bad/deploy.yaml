@@ -1,0 +1,39 @@
+# Fixture con pattern volutamente insicuri: NON usare come esempio.
+apiVersion: v1
+# sbd-expect-next: P-K8S-09
+kind: Secret
+metadata:
+  name: db
+---
+apiVersion: apps/v1
+kind: Deployment
+spec:
+  template:
+    spec:
+      # sbd-expect-next: P-K8S-04
+      hostNetwork: true
+      containers:
+        - name: app
+          # sbd-expect-next: P-K8S-08
+          image: registry.example.com/app:1.4.2
+          securityContext:
+            # sbd-expect-next: P-K8S-01
+            privileged: true
+            # sbd-expect-next: P-K8S-02
+            allowPrivilegeEscalation: true
+            # sbd-expect-next: P-K8S-03
+            runAsUser: 0
+            # sbd-expect-next: P-K8S-07
+            readOnlyRootFilesystem: false
+            capabilities:
+              add:
+                # sbd-expect-next: P-K8S-06
+                - NET_ADMIN
+              drop:
+                - NET_RAW
+      volumes:
+        - name: docker
+          # sbd-expect-next: P-K8S-05
+          hostPath:
+            # sbd-expect-next: P-K8S-05
+            path: /var/run/docker.sock
