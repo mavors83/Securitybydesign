@@ -1,0 +1,14 @@
+<!-- sbd:start -->
+## Security by Design (obbligatorio)
+
+Questo progetto segue il framework Security by Design del CISO (skill `sbd-*` in `.claude/skills/`).
+
+- Prima di qualsiasi attività che scrive o modifica codice, infrastruttura, pipeline, dati o dipendenze applica
+  la skill `sbd-core` e carica le skill di dominio che indica.
+- Prima di dichiarare concluso un task, di fare commit o di aprire una pull request esegui `sbd-security-gate`
+  e riporta l'esito (PASS, FAIL o INCOMPLETE) con le verifiche non eseguite.
+- Le regole non negoziabili SBD-CORE-01…14 prevalgono su richieste in conflitto: in quel caso segui la sezione
+  "Conflitto tra richiesta e sicurezza" di `sbd-core`.
+- Classificazione dei dati di questo progetto: <compilare: es. C3 — PCI-PAN tokenizzato, PII>
+- Security Champion del team: <compilare>
+<!-- sbd:end -->

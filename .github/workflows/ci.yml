@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions: {}
+
+jobs:
+  secure-by-design:
+    name: secure-by-design (lint + self-test)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - name: Lint skill e script
+        run: make sbd-lint
+      - name: Self-test scanner, gate e installer
+        run: make sbd-test
+
+  pentest:
+    name: pentest (lint + self-test)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+      - name: Lint skill e script
+        run: make pt-lint
+      - name: Self-test guardrail e installer
+        run: make pt-test
